@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
+import redoc from "redoc-express";
 import swaggerSpec from "./docs/swagger.js";
 import errorMiddleware from "./middleware/error.middleware.js";
 import routes from "./routes/index.js";
@@ -18,11 +19,9 @@ app.use("/api", routes);
 
 app.get("/api-docs.json", (_req, res) => res.json(swaggerSpec));
 
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerSpec)
-);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.get("/redoc", redoc({ title: "Expense Tracker API", specUrl: "/api-docs.json" }));
 
 app.use(errorMiddleware);
 
