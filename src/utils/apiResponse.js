@@ -1,14 +1,10 @@
-export const successResponse = (
-  res,
-  data,
-  message = "Success"
-) => {
-  return res.status(200).json({
+import { HttpStatus } from "../constants/httpStatus.js";
+
+export const successResponse = (res, data, message = "Success", statusCode = HttpStatus.OK) => {
+  return res.status(statusCode).json({
     success: true,
     message,
-    count: Array.isArray(data)
-      ? data.length
-      : undefined,
+    ...(Array.isArray(data) && { count: data.length }),
     data,
   });
 };

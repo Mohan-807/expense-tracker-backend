@@ -16,6 +16,8 @@ app.use(requestLogger);
 
 app.use("/api", routes);
 
+app.get("/api-docs.json", (_req, res) => res.json(swaggerSpec));
+
 app.use(
   "/api-docs",
   swaggerUi.serve,

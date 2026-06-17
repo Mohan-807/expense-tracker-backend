@@ -1,9 +1,11 @@
 import { Router } from "express";
-import asyncHandler from "../utils/asyncHandler.js";
-import AppError from "../utils/AppError.js";
+import authRoutes from "./auth.routes.js";
+import expenseRoutes from "./expense.routes.js";
 
 const router = Router();
 
+router.use("/auth", authRoutes);
+router.use("/expenses", expenseRoutes);
 /**
  * @swagger
  * /api/health:

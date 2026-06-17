@@ -4,19 +4,25 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "expense-tracker-backend API",
+      title: "Expense Tracker API",
       version: "1.0.0",
       description: "Expense tracker backend API",
     },
-    servers: [
-      {
-        url: "http://localhost:5000",
+    servers: [{ url: "http://localhost:5000" }],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
       },
-    ],
+    },
   },
-
   apis: [
-    "./src/routes/*.js",
+    "./src/routes/index.js",
+    "./src/routes/auth.routes.js",
+    "./src/routes/expense.routes.js",
   ],
 };
 
