@@ -20,3 +20,5 @@ export const addExpenseSchema = z.object({
   }),
   description: z.string().optional(),
 });
+
+export const updateExpenseSchema = addExpenseSchema.partial();

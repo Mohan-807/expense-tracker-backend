@@ -64,10 +64,11 @@ router.post("/register", validate(registerSchema), asyncHandler(register));
  *             properties:
  *               email:
  *                 type: string
- *                 example: john@example.com
+ *                 example: mohan@gmail.com
+ * 
  *               password:
  *                 type: string
- *                 example: secret123
+ *                 example: Welcome@123
  *     responses:
  *       200:
  *         description: Logged in successfully
