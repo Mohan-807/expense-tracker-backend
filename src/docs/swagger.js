@@ -1,4 +1,5 @@
 import swaggerJsdoc from "swagger-jsdoc";
+import { env } from "../config/env.js";
 
 const options = {
   definition: {
@@ -8,7 +9,7 @@ const options = {
       version: "1.0.0",
       description: "Expense tracker backend API",
     },
-    servers: [{ url: "http://localhost:5000" }],
+    servers: [{ url: env.SERVER_URL }],
     components: {
       securitySchemes: {
         bearerAuth: {
